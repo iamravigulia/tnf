@@ -1,0 +1,19 @@
+{
+    "name": "edgewizz/tnf",
+    "description": "testing",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Edgewizz\\Tnf\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Edgewizz\\Tnf\\TnfServiceProvider"
+            ]
+        }
+    },
+    "require": {}
+}
