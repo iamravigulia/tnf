@@ -34,7 +34,7 @@
           To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
       -->
         <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full relative -mx-8" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
-            <a onclick="closemodalTnF({{$message}})" class="p-2 w-8 h-8 bg-gray-600 text-white rounded-full absolute right-0 -top-10 -mr-2 -mt-2 z-40" href="javascript:void(0);">x</a>
+            <a onclick="closemodalTnF({{$message}})" class="rounded-full" style="background-color: red;color:white;font-size:40px;float: right;" href="javascript:void(0);">x</a>
             <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
                 <form action="{{route('fmt.tnf.update', $que->id)}}" method="post" enctype="multipart/form-data">
                     @if ($errors ?? '')
@@ -60,6 +60,14 @@
                             </div>
                         </div>{{-- //w-1/3 --}}
                     </div>{{-- //flex-wrap --}}
+                    <div class="flex flex-wrap -mx-4 my-4">{{-- flex-wrap --}}
+                        <div class="w-full px-4">{{-- w-1/3 --}}
+                            <div class="my-2">
+                                <label class="bloc" for="">Hint</label>
+                                <textarea class="w-full border border-gray-500 rounded-lg p-2" name="hint" id="" cols="30" rows="4" placeholder="Hint" maxlength="250">{{$que->hint ?? ''}}</textarea>
+                            </div>
+                        </div>{{-- //w-1/3 --}}
+                    </div>
                     <div class="my-2">
                         <label class="bloc" for="">Difficulty Level</label>
                         @php $d_levels = DB::table('difficulty_levels')->get(); @endphp
@@ -124,12 +132,12 @@
                         </div>
                         {{--  --}}
                     @endforeach
-                    <div class="w-full px-4">{{-- w-1/3 --}}
+                    {{-- <div class="w-full px-4">
                         <div class="my-2">
                             <label class="bloc" for="">Comment</label>
                             <textarea class="w-full border border-gray-500 rounded-lg p-2" name="hint" id="" cols="30" rows="4" placeholder="Comment">{{$que->hint}}</textarea>
                         </div>
-                    </div>{{-- //w-1/3 --}}
+                    </div> --}}
                     <button class="my-2 py-1 px-2 bg-blue-600 text-white rounded-lg" type="submit">Update</button>
                 </form>
             </div>
